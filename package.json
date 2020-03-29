@@ -1,0 +1,73 @@
+{
+    "name": "@brpaz/pulumi-k8s-resources",
+    "version": "1.0.0",
+    "description": "Custom Kubernetes resources definitions for use with Pulumi.",
+    "author": "Bruno Paz",
+    "license": "MIT",
+    "keywords": [
+        "pulumi",
+        "kubernetes"
+    ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "homepage": "https://brunopaz.dev",
+    "repository": "https://github.com/brpaz/pulumi-k8s-resources",
+    "scripts": {
+        "build": "tsc",
+        "commit": "git-cz",
+        "format": "prettier --write \"src/**/*.ts\"",
+        "lint": "tslint -c tslint.json '**/*.ts' --fix",
+        "test": "PULUMI_TEST_MODE=true PULUMI_NODEJS_STACK=test PULUMI_NODEJS_PROJECT=test jest --passWithNoTests",
+        "prepare": "build"
+    },
+    "dependencies": {
+        "@pulumi/kubernetes": "^1.6.0",
+        "@pulumi/pulumi": "^1.13.1"
+    },
+    "devDependencies": {
+        "@types/jest": "25.1.4",
+        "@types/node": "13.9.5",
+        "commitizen": "^4.0.3",
+        "cz-conventional-changelog": "^3.1.0",
+        "husky": "^4.2.3",
+        "jest": "25.2.3",
+        "lint-staged": "^10.0.10",
+        "prettier": "^2.0.2",
+        "ts-jest": "^25.2.1",
+        "tslint": "^6.1.0",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.8.3"
+    },
+    "lint-staged": {
+        "**/*.{ts,tsx}": [
+            "yarn format",
+            "yarn lint",
+            "yarn test"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "release": {
+        "branches": [
+            "master"
+        ],
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            "@semantic-release/changelog",
+            "@semantic-release/npm",
+            "@semantic-release/git"
+        ]
+    },
+    "pulumi": {
+        "resource": true
+    }
+}
