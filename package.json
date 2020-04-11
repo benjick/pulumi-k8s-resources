@@ -66,6 +66,9 @@
             "@semantic-release/npm"
         ]
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "pulumi": {
         "resource": true
     }
