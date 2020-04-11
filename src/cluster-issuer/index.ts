@@ -1,5 +1,5 @@
-import * as kubernetes from '@pulumi/kubernetes';
 import { CustomResourceOptions, Input } from '@pulumi/pulumi';
+import * as kubernetes from '@pulumi/kubernetes';
 
 type ClusterIssuerArgs = {
   name: string;
