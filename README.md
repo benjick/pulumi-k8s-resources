@@ -9,7 +9,7 @@
 ## Installation
 
 ```bash
-yarn add @brpaz/pulumi-custom-resources
+yarn add @brpaz/pulumi-k8s-resources
 ```
 
 ## Usage
